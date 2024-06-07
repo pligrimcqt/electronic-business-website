@@ -1,0 +1,24 @@
+server:
+  port: 8893
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/b2bdata?useSSL=false&serverTimezone=Asia/Shanghai&&characterEncoding=UTF-8
+#    serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: b2b-user-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@server1:8500/eureka/
+  instance:
+    hostname: localhost
+mybatis:
+  mapper-locations: classpath:/mapper/*
+logging:
+  level:
+    com.itheima: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
