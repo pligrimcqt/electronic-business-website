@@ -1,0 +1,25 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@server1:8500/eureka/
+server:
+  port: 5000
+spring:
+  application:
+    name: gateway-service
+zuul:
+  host:
+    connect-timeout-millis: 60000
+  routes:
+#    user-consumer:
+#      path: /api-a/**
+#    b2b-goods-consumer:
+#      path: /api-b/**
+    api-a:
+      path: /api-a/**
+      serviceId: user-consumer
+    api-b:
+      path: /api-b/**
+      serviceId: b2b-goods-consumer
+  add-host-header: true
+
