@@ -1,0 +1,19 @@
+server:
+  port: 8894
+spring:
+  application:
+    name: user-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@server1:8500/eureka/
+  instance:
+    hostname: localhost
+thymeleaf:
+  cache: false
+  prefix: classpath:/template/
+  suffix: .html
+  encoding: UTF-8
+feign:
+   hystrix:
+     enabled: true
